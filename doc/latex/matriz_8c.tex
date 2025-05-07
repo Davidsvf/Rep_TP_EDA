@@ -1,0 +1,140 @@
+\hypertarget{matriz_8c}{}\doxysection{Referência ao ficheiro matriz.\+c}
+\label{matriz_8c}\index{matriz.c@{matriz.c}}
+
+
+Implementação das funções para mostrar as matrizes no ecrã  
+
+
+{\ttfamily \#include \char`\"{}matriz.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Diagrama de dependências de inclusão para matriz.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matriz_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{matriz_8c_a48d452435a3d88a34aaf9249908d041b}{Calcular\+Dimensao\+Antenas}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, int $\ast$linhas, int $\ast$colunas)
+\begin{DoxyCompactList}\small\item\em Calcula as dimensões máximas (linhas e colunas) de uma matriz baseada nas coordenadas das antenas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matriz_8c_ad427e69c4a1bbda672bad4817965180d}{Mostrar\+Antenas}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio)
+\begin{DoxyCompactList}\small\item\em Mostra as antenas na matriz e imprime no terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matriz_8c_a87e380fee61d6adda5c11c64ca119165}{Calcular\+Dimensao\+Antenas\+EEfeitos}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, \mbox{\hyperlink{structEfeitoNefasto}{Efeito\+Nefasto}} $\ast$efeitos, int $\ast$linhas, int $\ast$colunas)
+\begin{DoxyCompactList}\small\item\em Calcula as dimensões (linhas e colunas) da matriz, considerando tanto as antenas como os efeitos nefastos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matriz_8c_a38a05027b90b3a41f9c2a729821f69a7}{Mostrar\+Antenas\+EEfeitos}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$antenas, \mbox{\hyperlink{structEfeitoNefasto}{Efeito\+Nefasto}} $\ast$efeitos)
+\begin{DoxyCompactList}\small\item\em Exibe as antenas e os efeitos nefastos numa matriz, representando as suas localizações. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Implementação das funções para mostrar as matrizes no ecrã 
+
+\begin{DoxyAuthor}{Autor}
+David Faria (\href{mailto:a31517@alunos.ipca.pt}{\texttt{ a31517@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versão}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Data}
+2025-\/05-\/01
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{matriz_8c_a48d452435a3d88a34aaf9249908d041b}\label{matriz_8c_a48d452435a3d88a34aaf9249908d041b}} 
+\index{matriz.c@{matriz.c}!CalcularDimensaoAntenas@{CalcularDimensaoAntenas}}
+\index{CalcularDimensaoAntenas@{CalcularDimensaoAntenas}!matriz.c@{matriz.c}}
+\doxysubsubsection{\texorpdfstring{CalcularDimensaoAntenas()}{CalcularDimensaoAntenas()}}
+{\footnotesize\ttfamily void Calcular\+Dimensao\+Antenas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{int $\ast$}]{linhas,  }\item[{int $\ast$}]{colunas }\end{DoxyParamCaption})}
+
+
+
+Calcula as dimensões máximas (linhas e colunas) de uma matriz baseada nas coordenadas das antenas. 
+
+Calcula as dimensões da matriz necessária para mostrar as antenas.
+
+Esta função percorre a lista de antenas e encontra as coordenadas máximas (x, y), de modo a determinar a dimensão necessária para representar todas as antenas
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em inicio} & Ponteiro para o início da lista ligada de antenas \\
+\hline
+{\em linhas} & Ponteiro para armazenar o número máximo de linhas \\
+\hline
+{\em colunas} & Ponteiro para armazenar o número máximo de colunas \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matriz_8c_a87e380fee61d6adda5c11c64ca119165}\label{matriz_8c_a87e380fee61d6adda5c11c64ca119165}} 
+\index{matriz.c@{matriz.c}!CalcularDimensaoAntenasEEfeitos@{CalcularDimensaoAntenasEEfeitos}}
+\index{CalcularDimensaoAntenasEEfeitos@{CalcularDimensaoAntenasEEfeitos}!matriz.c@{matriz.c}}
+\doxysubsubsection{\texorpdfstring{CalcularDimensaoAntenasEEfeitos()}{CalcularDimensaoAntenasEEfeitos()}}
+{\footnotesize\ttfamily void Calcular\+Dimensao\+Antenas\+EEfeitos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{\mbox{\hyperlink{structEfeitoNefasto}{Efeito\+Nefasto}} $\ast$}]{efeitos,  }\item[{int $\ast$}]{linhas,  }\item[{int $\ast$}]{colunas }\end{DoxyParamCaption})}
+
+
+
+Calcula as dimensões (linhas e colunas) da matriz, considerando tanto as antenas como os efeitos nefastos. 
+
+Calcula as dimensões da matriz necessária para mostrar as antenas e os efeitos nefastos.
+
+Esta função percorre a lista de antenas e efeitos nefastos para determinar as dimensões mínimas necessárias para a matriz que pode conter todas as antenas e efeitos, levando em consideração as suas coordenadas As dimensões calculadas correspondem ao número total de linhas e colunas da matriz, ajustadas para cobrir todas as posições das antenas e efeitos.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em inicio} & Ponteiro para a lista ligada das antenas \\
+\hline
+{\em efeitos} & Ponteiro para a lista ligada dos efeitos nefastos \\
+\hline
+{\em linhas} & Ponteiro para o número de linhas da matriz (será atualizado pela função) \\
+\hline
+{\em colunas} & Ponteiro para o número de colunas da matriz (será atualizado pela função) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matriz_8c_ad427e69c4a1bbda672bad4817965180d}\label{matriz_8c_ad427e69c4a1bbda672bad4817965180d}} 
+\index{matriz.c@{matriz.c}!MostrarAntenas@{MostrarAntenas}}
+\index{MostrarAntenas@{MostrarAntenas}!matriz.c@{matriz.c}}
+\doxysubsubsection{\texorpdfstring{MostrarAntenas()}{MostrarAntenas()}}
+{\footnotesize\ttfamily void Mostrar\+Antenas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio }\end{DoxyParamCaption})}
+
+
+
+Mostra as antenas na matriz e imprime no terminal. 
+
+Mostra as antenas presentes na lista ligada numa matriz.
+
+Esta função calcula as dimensões da cidade (matriz) com base nas antenas, aloca dinamicamente uma matriz para armazenar a cidade, e exibe-\/a no terminal.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em inicio} & Ponteiro para o início da lista ligada de antenas \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{matriz_8c_a38a05027b90b3a41f9c2a729821f69a7}\label{matriz_8c_a38a05027b90b3a41f9c2a729821f69a7}} 
+\index{matriz.c@{matriz.c}!MostrarAntenasEEfeitos@{MostrarAntenasEEfeitos}}
+\index{MostrarAntenasEEfeitos@{MostrarAntenasEEfeitos}!matriz.c@{matriz.c}}
+\doxysubsubsection{\texorpdfstring{MostrarAntenasEEfeitos()}{MostrarAntenasEEfeitos()}}
+{\footnotesize\ttfamily void Mostrar\+Antenas\+EEfeitos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{antenas,  }\item[{\mbox{\hyperlink{structEfeitoNefasto}{Efeito\+Nefasto}} $\ast$}]{efeitos }\end{DoxyParamCaption})}
+
+
+
+Exibe as antenas e os efeitos nefastos numa matriz, representando as suas localizações. 
+
+Mostra as antenas e os efeitos nefastos presentes nas listas ligadas.
+
+Esta função calcula as dimensões da matriz necessária para acomodar tanto as antenas quanto os efeitos nefastos. A matriz resultante é preenchida com as posições das antenas (representadas pelo seu identificador de frequência) e os efeitos nefastos (representados pelo símbolo \textquotesingle{}\#\textquotesingle{}). As antenas são colocadas primeiro, seguidas pelos efeitos.
+
+As posições das antenas são inseridas nas coordenadas correspondentes na matriz, enquanto os efeitos são representados nas mesmas posições onde ocorrem, sobrepondo as antenas caso necessário.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em antenas} & Ponteiro para a lista ligada de antenas a ser exibida. \\
+\hline
+{\em efeitos} & Ponteiro para a lista ligada de efeitos nefastos a ser exibidos. \\
+\hline
+\end{DoxyParams}
