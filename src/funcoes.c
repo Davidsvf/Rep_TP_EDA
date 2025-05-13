@@ -70,7 +70,7 @@ Antena* InserirAntena(Antena* inicio, Antena* nova, bool* validar){
     // Se a lista estiver vazia a nova antena será a primeira
     if(inicio==NULL){
         nova->prox=inicio; 
-        *validar=false;
+        *validar=true;
         return(nova); 
     }
 
@@ -450,8 +450,7 @@ Antena* CarregarFicheiro(char* nomeficheiro, bool* validar){
         y++; // Avança para a próxima linha do ficheiro
     }
     fclose(ficheiro); 
-    return inicio; 
-   
+    return inicio;   
 }
 
 /**
@@ -524,7 +523,6 @@ Antena* LerFicheiroBin(char* nomeficheiro, bool* validar){
     
     fclose(ficheiro);
     return (inicio);
-
 }
 
 #pragma endregion
