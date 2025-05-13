@@ -19,19 +19,15 @@ int main() {
     bool validar = false;
 
     // Carregar o grafo a partir do ficheiro
-    Antena* ficheiro= CarregarFicheiro("cidade.txt", &sucesso);
-    if (!sucesso || ficheiro == NULL) {
+    Antena* inicio= CarregarFicheiro("cidade.txt", &sucesso);
+    if (!sucesso || inicio == NULL) {
         printf("Erro ao carregar o ficheiro ou ficheiro vazio!\n");
-        return -1;
     }
-
-    Antena* inicio=ficheiro;
-
+    
     // Calcular as adjacências entre as antenas
     CalcularArestas(inicio, &validar);
     if (!validar) {
         printf("Erro ao calcular as adjacências!\n");
-        return -1;
     }
 
     // Imprimir o grafo e suas adjacências em largura
