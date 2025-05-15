@@ -14,6 +14,7 @@
 #include <stdbool.h>
 
 #define TAM_MAX_LINHA 200
+#define MAX_ANTENAS 100
 
 typedef struct Antena{
     char freq;
@@ -21,6 +22,7 @@ typedef struct Antena{
     int y;
     struct Adj* adj;
     struct Antena* prox;
+    int visitado;
 }Antena;
 
 typedef struct Adj{
@@ -28,13 +30,14 @@ typedef struct Adj{
     struct Adj* prox;
 }Adj;
 
+
 Antena* CriarAntena( char freq, int x, int y, bool* validar);
 
 Antena* InserirAntena(Antena* inicio, Antena* nova, bool* validar);
 
 Antena* RemoverAntena(Antena* inicio, int x, int y, bool* validar);
 
-bool EncontrarAntena(Antena* inicio, int x, int y);
+Antena* EncontrarAntena(Antena* inicio, int x, int y);
 
 Adj* CriarAresta(Antena* destino, bool* validar);
 
@@ -47,4 +50,8 @@ Antena* CarregarFicheiro(char* nomeficheiro, bool* validar);
 bool GravarFicheiroBin(char* nomeficheiro, Antena* inicio);
 
 Antena* LerFicheiroBin(char* nomeficheiro, bool* validar);
+
+void LimparVisitados(Antena* inicio, bool* validar);
+
+void ProcuraProfundidade(Antena* inicio, Antena* visitados[], int* nVisitados, bool* validar);
 

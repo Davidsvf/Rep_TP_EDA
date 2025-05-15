@@ -125,14 +125,13 @@ Antena* RemoverAntena(Antena* inicio, int x, int y, bool* validar){
     return(inicio); // Retorna a lista original sem modificações
 }
 
-bool EncontrarAntena(Antena* inicio, int x, int y){
+Antena* EncontrarAntena(Antena* inicio, int x, int y){
     while (inicio != NULL) {
         if (inicio->x == x && inicio->y == y) {
-            return true;
+            return inicio;
         }
         inicio = inicio->prox;
     }
-    return false;
 }
 
 
@@ -287,10 +286,10 @@ bool GravarFicheiroBin(char* nomeficheiro, Antena* inicio){
             fwrite(&adj->destino->x, sizeof(int), 1, ficheiro);
             fwrite(&adj->destino->y, sizeof(int), 1, ficheiro);
         
-            adj= adj->prox; // Avança para a próxima adjacencia da mesma antena
+            adj= adj->prox; 
         }
 
-        aux=aux->prox; // Avança para a próxima antena na lista
+        aux=aux->prox; 
     }
   
     fclose(ficheiro);
@@ -299,7 +298,7 @@ bool GravarFicheiroBin(char* nomeficheiro, Antena* inicio){
 
 Antena* LerFicheiroBin(char* nomeficheiro, bool* validar){
     bool sucesso;
-    *validar = false;
+    *validar=false;
 
     // Abre o ficheiro para leitura binária
     FILE* ficheiro= fopen(nomeficheiro, "rb");
@@ -335,25 +334,59 @@ Antena* LerFicheiroBin(char* nomeficheiro, bool* validar){
         // Lê o número de adjacencia de cada vertice (antena) previamente anotados
         fread(&totAdj, sizeof(int), 1, ficheiro);
         
-        // Percorre todas as adjacências da antena
-        for(int j=0; j<totAdj; j++){
-            // Lê todos os dados da adjacência
-            fread(&adjX, sizeof(int), 1, ficheiro);
-            fread(&adjY, sizeof(int), 1, ficheiro);
+        // Verifica se antena existe
+        Antena* origem = EncontrarAntena(inicio, x, y);
+        if(origem){
+            // Percorre todas as adjacências da antena
+            for(int j=0; j<totAdj; j++){
+                // Lê todos os dados da adjacência
+                fread(&adjX, sizeof(int), 1, ficheiro);
+                fread(&adjY, sizeof(int), 1, ficheiro);
 
-            // Insere as arestas na respetiva lista ligada para cada antena
-            Antena* destino= EncontrarAntena(inicio, adjX, adjY);
-            if(destino){
-                Adj* novaAdj= CriarAresta(destino, &sucesso);
-                if(sucesso){
-                    Adj* adjs= InserirAresta(nova, novaAdj, &sucesso);
-                    if(sucesso) *validar=true;
+                // Insere as arestas na respetiva lista ligada para cada antena
+                Antena* destino= EncontrarAntena(inicio, adjX, adjY);
+                if(destino){
+                    Adj* novaAdj= CriarAresta(destino, &sucesso);
+                    if(sucesso){
+                        Adj* adjs= InserirAresta(origem, novaAdj, &sucesso);
+                        if(sucesso) *validar=true;
+                    }
                 }
             }
         }
     }
     fclose(ficheiro);
     return (inicio);
+}
+
+#pragma endregion
+
+#pragma region Grafos
+
+// Limpa todos os visitados
+void LimparVisitados(Antena* inicio, bool* validar){
+    *validar=false;
+    while(inicio){
+        inicio->visitado= 0;
+        inicio= inicio->prox;
+    }
+    *validar=true;
+}
+
+// Procura um caminho de percorrer todas as antenas sem passar mais que uma vez por a mesma
+void ProcuraProfundidade(Antena* inicio, Antena* visitados[], int* nVisitados, bool* validar){
+
+    if(!inicio || inicio->visitado) return;
+
+    inicio->visitado=1;
+    visitados[(*nVisitados)++]=inicio;
+    *validar=true;
+
+    Adj* adj=inicio->adj;
+    while(adj){
+        ProcuraProfundidade(adj->destino, visitados, nVisitados, validar);
+        adj= adj->prox;
+    }
 }
 
 #pragma endregion
