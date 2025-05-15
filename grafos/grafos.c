@@ -14,6 +14,8 @@
 #include <malloc.h>
 #include <string.h>
 
+#pragma region Vertices
+
 Antena* CriarAntena(char freq, int x, int y, bool* validar){
     Antena* aux;
     aux= (Antena*)malloc(sizeof(Antena));
@@ -123,6 +125,21 @@ Antena* RemoverAntena(Antena* inicio, int x, int y, bool* validar){
     return(inicio); // Retorna a lista original sem modificações
 }
 
+bool EncontrarAntena(Antena* inicio, int x, int y){
+    while (inicio != NULL) {
+        if (inicio->x == x && inicio->y == y) {
+            return true;
+        }
+        inicio = inicio->prox;
+    }
+    return false;
+}
+
+
+#pragma endregion
+
+#pragma region Adjacencias
+
 Adj* CriarAresta(Antena* destino, bool* validar){
     Adj*aux;
     aux=(Adj*)malloc(sizeof(Adj));
@@ -193,6 +210,10 @@ Adj* CalcularArestas(Antena* inicio, bool* validar){
     }
 }
 
+#pragma endregion
+
+#pragma region Ficheiros
+
 Antena* CarregarFicheiro(char* nomeficheiro, bool* validar){
     bool sucesso;
     *validar = false;
@@ -224,3 +245,115 @@ Antena* CarregarFicheiro(char* nomeficheiro, bool* validar){
     fclose(ficheiro);
     return inicio; 
 }
+
+bool GravarFicheiroBin(char* nomeficheiro, Antena* inicio){
+    // Abre o ficheiro para escrita binária
+    FILE* ficheiro= fopen(nomeficheiro, "wb");
+    if(!ficheiro){
+        return false;
+    }
+
+    // Percorre a lista das antenas para contar quantas são (vertices)
+    int totVertices=0;
+    Antena* aux=inicio;
+    while (aux){
+        totVertices++;
+        aux=aux->prox;
+    }
+
+    // Escreve o numero de vertices
+    fwrite(&totVertices, sizeof(int), 1, ficheiro);
+
+    // Percorre a lista ligada de antenas e escreve os dados no ficheiro
+    while(aux){
+        fwrite(&aux->freq, sizeof(char), 1, ficheiro);
+        fwrite(&aux->x, sizeof(int), 1, ficheiro);
+        fwrite(&aux->y, sizeof(int), 1, ficheiro);
+
+        // Percorre a lista das adjacencias e conta quantas essa mesma antena contém
+        int totAdj=0;
+        Adj* adj=aux->adj;
+        while(adj){
+            totAdj++;
+            adj=adj->prox;
+        }
+
+        // Escreve o número de adjacencias dessa mesma antena
+        fwrite(&totAdj, sizeof(int), 1, ficheiro);
+
+        // Percorre a lista de adjacencias dessa mesma antena
+        while(adj){
+            // Escreve as adjacencias no ficheiro binário
+            fwrite(&adj->destino->x, sizeof(int), 1, ficheiro);
+            fwrite(&adj->destino->y, sizeof(int), 1, ficheiro);
+        
+            adj= adj->prox; // Avança para a próxima adjacencia da mesma antena
+        }
+
+        aux=aux->prox; // Avança para a próxima antena na lista
+    }
+  
+    fclose(ficheiro);
+    return true;
+}
+
+Antena* LerFicheiroBin(char* nomeficheiro, bool* validar){
+    bool sucesso;
+    *validar = false;
+
+    // Abre o ficheiro para leitura binária
+    FILE* ficheiro= fopen(nomeficheiro, "rb");
+    if(!ficheiro){
+        return NULL;
+    }
+ 
+    Antena* inicio=NULL;
+    int totVertices=0;
+    int totAdj=0;
+
+    char freq;
+    int x, y, adjX, adjY;
+
+    // Lê o número de vértices previamente anotados
+    fread(&totVertices, sizeof(int), 1, ficheiro);
+
+    // Percorre todos os vértices (antenas)
+    for(int i=0; i<totVertices; i++){
+        // Lê todos os dados de cada antena 
+        fread(&freq, sizeof(char), 1, ficheiro);
+        fread(&x, sizeof(int), 1, ficheiro);
+        fread(&y, sizeof(int), 1, ficheiro);
+       
+
+        // Insere os vértices (antenas) na respetiva lista ligada 
+        Antena* nova= CriarAntena(freq, x, y, &sucesso);
+        if(sucesso){
+        inicio=InserirAntena(inicio, nova, &sucesso);
+        if(sucesso) *validar=true;
+        }
+
+        // Lê o número de adjacencia de cada vertice (antena) previamente anotados
+        fread(&totAdj, sizeof(int), 1, ficheiro);
+        
+        // Percorre todas as adjacências da antena
+        for(int j=0; j<totAdj; j++){
+            // Lê todos os dados da adjacência
+            fread(&adjX, sizeof(int), 1, ficheiro);
+            fread(&adjY, sizeof(int), 1, ficheiro);
+
+            // Insere as arestas na respetiva lista ligada para cada antena
+            Antena* destino= EncontrarAntena(inicio, adjX, adjY);
+            if(destino){
+                Adj* novaAdj= CriarAresta(destino, &sucesso);
+                if(sucesso){
+                    Adj* adjs= InserirAresta(nova, novaAdj, &sucesso);
+                    if(sucesso) *validar=true;
+                }
+            }
+        }
+    }
+    fclose(ficheiro);
+    return (inicio);
+}
+
+#pragma endregion

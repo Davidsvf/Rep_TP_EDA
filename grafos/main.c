@@ -34,12 +34,19 @@ int main() {
     printf("Grafo e suas adjacências em largura:\n\n");
     MostraGrafoLargura(inicio);
 
-    // Libertar a memoria das antenas 
-    Antena* aux = inicio;
-    while (aux) {
-        Antena* temp = aux;
-        aux = aux->prox;
-        free(temp);  // Liberta cada antena
+    // Gravar as listas ligadas das antenas e adjacências no ficheiro binário
+    if (GravarFicheiroBin("Grafo.bin", inicio)) {
+        printf("Gravado com sucesso!\n");
+    } else {
+        printf("Erro ao gravar no ficheiro binário.\n");
+    }
+
+    // Ler o ficheiro binário e inserir os dados nas respetivas listas ligadas
+    Antena* lerLista = LerFicheiroBin("Grafos.bin", &sucesso);
+    if (sucesso) {
+        printf("Leitura do ficheiro binário realizada com sucesso!\n");
+    }else{
+        printf("Erro ao ler ficheiro binário.\n");
     }
 
     return 0;

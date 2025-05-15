@@ -34,6 +34,8 @@ Antena* InserirAntena(Antena* inicio, Antena* nova, bool* validar);
 
 Antena* RemoverAntena(Antena* inicio, int x, int y, bool* validar);
 
+bool EncontrarAntena(Antena* inicio, int x, int y);
+
 Adj* CriarAresta(Antena* destino, bool* validar);
 
 Adj* InserirAresta(Antena* inicio, Adj* aresta, bool* validar);
@@ -41,3 +43,8 @@ Adj* InserirAresta(Antena* inicio, Adj* aresta, bool* validar);
 Adj* CalcularArestas(Antena* inicio, bool* validar);
 
 Antena* CarregarFicheiro(char* nomeficheiro, bool* validar);
+
+bool GravarFicheiroBin(char* nomeficheiro, Antena* inicio);
+
+Antena* LerFicheiroBin(char* nomeficheiro, bool* validar);
+
