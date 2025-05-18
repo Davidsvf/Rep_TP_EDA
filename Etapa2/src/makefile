@@ -6,10 +6,17 @@ grafos.o: grafos.h grafos.c
 ecra.o: ecra.h ecra.c
 	gcc -c ecra.c
 
-prog: grafos.o ecra.o
-	gcc main.c grafos.o ecra.o -o prog
+libgrafos.a: grafos.o
+	ar rcs libgrafos.a grafos.o
+
+libecra.a: ecra.o
+	ar rcs libecra.a ecra.o
+
+prog: main.c libgrafos.a libecra.a
+	gcc main.c -L. -lgrafos -lecra -o prog
+
 run: 
 	./prog
 	
 clean: 
-	rm *.o prog
+	rm -f *.o *.a prog

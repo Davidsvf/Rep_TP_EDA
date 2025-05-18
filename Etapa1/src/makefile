@@ -7,11 +7,17 @@ funcoes.o: funcoes.h funcoes.c
 matriz.o: matriz.h matriz.c
 	gcc -c matriz.c
 
-prog: funcoes.o matriz.o
-	gcc main.c funcoes.o matriz.o -o prog
+libfuncoes.a: funcoes.o
+	ar rcs libfuncoes.a funcoes.o
+
+libmatriz.a: matriz.o
+	ar rcs libmatriz.a matriz.o
+
+prog: main.c libfuncoes.a libmatriz.a
+	gcc main.c -L. -lfuncoes -lmatriz -o prog
 
 run: 
 	./prog
 	
 clean: 
-	rm *.o prog
+	rm -f *.o *.a prog
