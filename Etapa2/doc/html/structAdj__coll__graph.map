@@ -1,0 +1,4 @@
+<map id="Adj" name="Adj">
+<area shape="rect" id="node1" title="Representa uma aresta entre antenas no grafo." alt="" coords="18,5,61,32"/>
+<area shape="rect" id="node2" href="$structAntena.html" title="Esta estrutura modela uma antena no grafo e contém informações sobre a sua frequência,..." alt="" coords="5,95,73,121"/>
+</map>

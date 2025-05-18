@@ -1,0 +1,82 @@
+\hypertarget{ecra_8c}{}\doxysection{ecra.\+c File Reference}
+\label{ecra_8c}\index{ecra.c@{ecra.c}}
+
+
+Implementação das funções para mostrar no ecrã  
+
+
+{\ttfamily \#include \char`\"{}ecra.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for ecra.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{ecra_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ecra_8c_a5e5f58dd061145ece0cbcaaca6a08e30}{Mostra\+Grafo}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio)
+\begin{DoxyCompactList}\small\item\em Mostra as antenas e as respetivas adjacencias na consola. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ecra_8c_acc18196fd2aeaf6c34c8c884ab327984}{Listar\+Caminhos}} (\mbox{\hyperlink{structCaminho}{Caminho}} $\ast$caminhos)
+\begin{DoxyCompactList}\small\item\em Lista todos os caminhos armazenados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação das funções para mostrar no ecrã 
+
+\begin{DoxyAuthor}{Author}
+David Faria (\href{mailto:a31517@alunos.ipca.pt}{\texttt{ a31517@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/13
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ecra_8c_acc18196fd2aeaf6c34c8c884ab327984}\label{ecra_8c_acc18196fd2aeaf6c34c8c884ab327984}} 
+\index{ecra.c@{ecra.c}!ListarCaminhos@{ListarCaminhos}}
+\index{ListarCaminhos@{ListarCaminhos}!ecra.c@{ecra.c}}
+\doxysubsubsection{\texorpdfstring{ListarCaminhos()}{ListarCaminhos()}}
+{\footnotesize\ttfamily void Listar\+Caminhos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCaminho}{Caminho}} $\ast$}]{caminhos }\end{DoxyParamCaption})}
+
+
+
+Lista todos os caminhos armazenados. 
+
+Lista todos os caminhos armazenados possiveis.
+
+Esta função percorre a lista ligada de caminhos e apresenta para cada caminho as coordenadas das antenas que o compõem, na ordem em que são percorridas
+
+
+\begin{DoxyParams}{Parameters}
+{\em caminhos} & Ponteiro para o início da lista de caminhos a listar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ecra_8c_a5e5f58dd061145ece0cbcaaca6a08e30}\label{ecra_8c_a5e5f58dd061145ece0cbcaaca6a08e30}} 
+\index{ecra.c@{ecra.c}!MostraGrafo@{MostraGrafo}}
+\index{MostraGrafo@{MostraGrafo}!ecra.c@{ecra.c}}
+\doxysubsubsection{\texorpdfstring{MostraGrafo()}{MostraGrafo()}}
+{\footnotesize\ttfamily void Mostra\+Grafo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio }\end{DoxyParamCaption})}
+
+
+
+Mostra as antenas e as respetivas adjacencias na consola. 
+
+Mostra o grafo de antenas na consola.
+
+Esta função percorre a lista ligada de antenas e apresenta as coordenadas e frequência Para cada antena, também, lista as antenas adjacentes (arestas) associadas
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Ponteiro para o início da lista de antenas \\
+\hline
+\end{DoxyParams}

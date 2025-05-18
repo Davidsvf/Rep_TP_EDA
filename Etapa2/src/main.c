@@ -1,7 +1,7 @@
 /**
  * @file main.c
  * @author David Faria (a31517@alunos.ipca.pt)
- * @brief 
+ * @brief rograma principal que executa as funções
  * @version 0.1
  * @date 2025-05-12
  * 
@@ -13,7 +13,21 @@
 #include "grafos.h"
 #include "ecra.h"
 
-
+/**
+ * @brief Função principal do programa
+ * 
+ * Esta função é responsável por coordenar a execução principal do programa, que envolve:
+ * - Carregar o grafo de antenas a partir de um ficheiro de texto
+ * - Calcular as adjacências entre antenas
+ * - Mostrar o grafo e as suas adjacências
+ * - Gravar o grafo num ficheiro binário
+ * - Ler o grafo a partir do ficheiro binário
+ * - Limpar os marcadores de "visitado" antes de uma procura em profundidade
+ * - Executar uma procura em profundidade no grafo
+ * - Calcular todos os caminhos possíveis entre duas antenas especificadas pelo utilizador
+ * 
+ * @return int Retorna 0 no fim da execução
+ */
 int main() {
     bool sucesso;
     bool validar = false;

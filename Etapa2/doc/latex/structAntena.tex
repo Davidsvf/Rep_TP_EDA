@@ -1,0 +1,50 @@
+\hypertarget{structAntena}{}\doxysection{Antena Struct Reference}
+\label{structAntena}\index{Antena@{Antena}}
+
+
+Esta estrutura modela uma antena no grafo e contém informações sobre a sua frequência, posição no espaço (coordenadas x e y), ligações a outras antenas (adjacências), um ponteiro para a próxima antena na lista ligada e uma flag de visita para saber se esta ja foi visitada ou não.  
+
+
+
+
+{\ttfamily \#include $<$grafos.\+h$>$}
+
+
+
+Collaboration diagram for Antena\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{structAntena__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAntena_acbb0ceb3114405ec0fd07f67b79bd3e5}\label{structAntena_acbb0ceb3114405ec0fd07f67b79bd3e5}} 
+char {\bfseries freq}
+\item 
+\mbox{\Hypertarget{structAntena_a3b196deb45a500d432ef7f7a653adbaf}\label{structAntena_a3b196deb45a500d432ef7f7a653adbaf}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{structAntena_a7166c31d6fd9c3607b300ee0dc6371ba}\label{structAntena_a7166c31d6fd9c3607b300ee0dc6371ba}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{structAntena_a7aaabfb031266286eab585c9f137ac4f}\label{structAntena_a7aaabfb031266286eab585c9f137ac4f}} 
+struct \mbox{\hyperlink{structAdj}{Adj}} $\ast$ {\bfseries adj}
+\item 
+\mbox{\Hypertarget{structAntena_a20010d47a4aa05eee8fd6412a96e0b69}\label{structAntena_a20010d47a4aa05eee8fd6412a96e0b69}} 
+struct \mbox{\hyperlink{structAntena}{Antena}} $\ast$ {\bfseries prox}
+\item 
+\mbox{\Hypertarget{structAntena_a6c954cd794742888f99c1108996bedda}\label{structAntena_a6c954cd794742888f99c1108996bedda}} 
+bool {\bfseries visitado}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta estrutura modela uma antena no grafo e contém informações sobre a sua frequência, posição no espaço (coordenadas x e y), ligações a outras antenas (adjacências), um ponteiro para a próxima antena na lista ligada e uma flag de visita para saber se esta ja foi visitada ou não. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{grafos_8h}{grafos.\+h}}\end{DoxyCompactItemize}

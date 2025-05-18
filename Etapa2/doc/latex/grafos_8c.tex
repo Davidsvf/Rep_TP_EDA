@@ -1,0 +1,441 @@
+\hypertarget{grafos_8c}{}\doxysection{grafos.\+c File Reference}
+\label{grafos_8c}\index{grafos.c@{grafos.c}}
+
+
+Implementação de todas as funções.  
+
+
+{\ttfamily \#include \char`\"{}grafos.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for grafos.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{grafos_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structAntena}{Antena}} $\ast$ \mbox{\hyperlink{grafos_8c_a413e1adf8104f8d4f10d151495b094db}{Criar\+Antena}} (char freq, int x, int y, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Cria uma nova antena com os parâmetros especificados. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAntena}{Antena}} $\ast$ \mbox{\hyperlink{grafos_8c_a70bf5ea0ee31825aa95f6e927ef6e2fa}{Inserir\+Antena}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, \mbox{\hyperlink{structAntena}{Antena}} $\ast$nova, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Insere uma nova antena numa lista ligada ordenada por coordenadas (y, x) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAntena}{Antena}} $\ast$ \mbox{\hyperlink{grafos_8c_a11bdbb750ee456af6c4a7b316c2676a3}{Remover\+Antena}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, int x, int y, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Remove uma antena da lista ligada com coordenadas específicas (x, y) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAntena}{Antena}} $\ast$ \mbox{\hyperlink{grafos_8c_a33a6dd2baadedf00f17cc0830479f234}{Encontrar\+Antena}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, int x, int y)
+\begin{DoxyCompactList}\small\item\em Procura uma antena na lista ligada com coordenadas específicas (x, y) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAdj}{Adj}} $\ast$ \mbox{\hyperlink{grafos_8c_a7960f376b25cf52b83f865f50f286235}{Criar\+Aresta}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$destino, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Cria uma nova aresta que liga uma antena de origem a uma antena de destino. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAdj}{Adj}} $\ast$ \mbox{\hyperlink{grafos_8c_acabaf66d85450224d4ef172544c73b41}{Inserir\+Aresta}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, \mbox{\hyperlink{structAdj}{Adj}} $\ast$aresta, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Insere uma nova aresta na lista de adjacências de uma antena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAdj}{Adj}} $\ast$ \mbox{\hyperlink{grafos_8c_a9a9779268684f27f99c086c34f75ee27}{Calcular\+Arestas}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Insere uma nova aresta na lista de adjacências de uma antena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAntena}{Antena}} $\ast$ \mbox{\hyperlink{grafos_8c_a2142b38345cf261e321082a08d90fc3a}{Carregar\+Ficheiro}} (char $\ast$nomeficheiro, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Carrega um ficheiro de texto e cria uma lista encadeada de antenas. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{grafos_8c_a0fe16a576f301e082ee240d3d31fbf18}{Gravar\+Ficheiro\+Bin}} (char $\ast$nomeficheiro, \mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio)
+\begin{DoxyCompactList}\small\item\em Grava a lista de antenas num ficheiro binário. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAntena}{Antena}} $\ast$ \mbox{\hyperlink{grafos_8c_ad03cca7e5001b85436b02c3ff7cd5eba}{Ler\+Ficheiro\+Bin}} (char $\ast$nomeficheiro, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Lê uma lista de antenas e as respetivas adjacências de um ficheiro binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grafos_8c_a959bd21997a05df87fdefa836fed18b8}{Limpar\+Visitados}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$inicio, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Limpa o estado de visita de todas as antenas na lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grafos_8c_a9f602cb53b3fb3017bd72843ab3e78e0}{Procura\+Profundidade}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$antena, \mbox{\hyperlink{structAntena}{Antena}} $\ast$visitados\mbox{[}$\,$\mbox{]}, int $\ast$n\+Visitados, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Realiza uma busca em profundidade a partir de uma antena. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCaminho}{Caminho}} $\ast$ \mbox{\hyperlink{grafos_8c_a180eac03ff7d4d403424853405bcd4b3}{Guardar\+Caminho}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$caminho\mbox{[}$\,$\mbox{]}, int posicao, \mbox{\hyperlink{structCaminho}{Caminho}} $\ast$caminhos)
+\begin{DoxyCompactList}\small\item\em Armazena um caminho percorrido por um vetor de antenas numa lista ligada de caminhos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCaminho}{Caminho}} $\ast$ \mbox{\hyperlink{grafos_8c_a39636bf6ac495e4e28725d57ecb3e028}{Calcular\+Caminhos\+Entre\+Antenas}} (\mbox{\hyperlink{structAntena}{Antena}} $\ast$origem, \mbox{\hyperlink{structAntena}{Antena}} $\ast$destino, \mbox{\hyperlink{structAntena}{Antena}} $\ast$caminho\mbox{[}$\,$\mbox{]}, int posicao, \mbox{\hyperlink{structCaminho}{Caminho}} $\ast$caminhos, bool $\ast$validar)
+\begin{DoxyCompactList}\small\item\em Calcula todos os caminhos entre duas antenas com a mesma frequência. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementação de todas as funções. 
+
+\begin{DoxyAuthor}{Author}
+David Faria (\href{mailto:a31517@alunos.ipca.pt}{\texttt{ a31517@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/05-\/12
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{grafos_8c_a9a9779268684f27f99c086c34f75ee27}\label{grafos_8c_a9a9779268684f27f99c086c34f75ee27}} 
+\index{grafos.c@{grafos.c}!CalcularArestas@{CalcularArestas}}
+\index{CalcularArestas@{CalcularArestas}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{CalcularArestas()}{CalcularArestas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdj}{Adj}}$\ast$ Calcular\+Arestas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Insere uma nova aresta na lista de adjacências de uma antena. 
+
+Calcula todas as arestas de adjacência no grafo de antenas.
+
+Esta função adiciona a aresta {\ttfamily aresta} à lista de adjacências da antena {\ttfamily inicio} Se a lista de adjacências estiver vazia, a aresta torna-\/se o primeiro elemento Caso contrário, a aresta é inserida no final da lista Se ocorrer uma falha na alocação de memória ou se a lista de antenas estiver vazia, a operação é considerada inválida e o parâmetro {\ttfamily validar} é definido como {\ttfamily false}
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Ponteiro para a antena cuja lista de adjacências será atualizada \\
+\hline
+{\em validar} & Ponteiro para a nova aresta a ser inserida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adj$\ast$ Ponteiro para variável booleana onde será armazenado o resultado da operação 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a39636bf6ac495e4e28725d57ecb3e028}\label{grafos_8c_a39636bf6ac495e4e28725d57ecb3e028}} 
+\index{grafos.c@{grafos.c}!CalcularCaminhosEntreAntenas@{CalcularCaminhosEntreAntenas}}
+\index{CalcularCaminhosEntreAntenas@{CalcularCaminhosEntreAntenas}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{CalcularCaminhosEntreAntenas()}{CalcularCaminhosEntreAntenas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCaminho}{Caminho}}$\ast$ Calcular\+Caminhos\+Entre\+Antenas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{destino,  }\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{caminho\mbox{[}$\,$\mbox{]},  }\item[{int}]{posicao,  }\item[{\mbox{\hyperlink{structCaminho}{Caminho}} $\ast$}]{caminhos,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Calcula todos os caminhos entre duas antenas com a mesma frequência. 
+
+Calcula todos os caminhos possíveis entre duas antenas no grafo ~\newline
+
+
+Esta função calcula todos caminhos possiveis da antena de origem até à antena de destino, armazenando todos os caminhos encontrados num vetor de antenas. Apenas são consideradas antenas com a mesma frequência da antena de origem e que ainda não tenham sido visitadas
+
+
+\begin{DoxyParams}{Parameters}
+{\em origem} & Ponteiro para a antena de origem da busca \\
+\hline
+{\em destino} & Ponteiro para a antena de destino da busca \\
+\hline
+{\em caminho} & Vetor de ponteiros para antenas que representa o caminho percorrido até ao momento \\
+\hline
+{\em posicao} & Índice da próxima posição disponível no vetor {\ttfamily caminho} \\
+\hline
+{\em caminhos} & Ponteiro para a lista ligada de caminhos onde serão armazenados os caminhos encontrados \\
+\hline
+{\em validar} & Ponteiro para variável booleana que será setada a {\ttfamily true} se a operação for bem-\/sucedida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Caminho$\ast$ Ponteiro para a lista ligada de caminhos atualizada com os novos caminhos encontrados 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a2142b38345cf261e321082a08d90fc3a}\label{grafos_8c_a2142b38345cf261e321082a08d90fc3a}} 
+\index{grafos.c@{grafos.c}!CarregarFicheiro@{CarregarFicheiro}}
+\index{CarregarFicheiro@{CarregarFicheiro}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{CarregarFicheiro()}{CarregarFicheiro()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAntena}{Antena}}$\ast$ Carregar\+Ficheiro (\begin{DoxyParamCaption}\item[{char $\ast$}]{nomeficheiro,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Carrega um ficheiro de texto e cria uma lista encadeada de antenas. 
+
+Carrega uma lista de antenas a partir de um ficheiro de texto.
+
+Esta função lê um ficheiro de texto especificado por {\ttfamily nomeficheiro}, linha por linha, e cria uma lista encadeada de antenas representadas por caracteres não pontuais (\textquotesingle{}.\textquotesingle{}) Cada linha do ficheiro representa uma linha de antenas, com cada carácter representando uma antena numa posição específica. As antenas são inseridas na lista de acordo com a sua posição (x, y) na matriz representada pelo ficheiro
+
+
+\begin{DoxyParams}{Parameters}
+{\em nomeficheiro} & Nome do ficheiro de texto a ser lido \\
+\hline
+{\em validar} & Ponteiro para variável booleana onde será armazenado o resultado da operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Antena$\ast$ Ponteiro para o início da lista encadeada de antenas, ou {\ttfamily NULL} se ocorrer um erro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a413e1adf8104f8d4f10d151495b094db}\label{grafos_8c_a413e1adf8104f8d4f10d151495b094db}} 
+\index{grafos.c@{grafos.c}!CriarAntena@{CriarAntena}}
+\index{CriarAntena@{CriarAntena}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{CriarAntena()}{CriarAntena()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAntena}{Antena}}$\ast$ Criar\+Antena (\begin{DoxyParamCaption}\item[{char}]{freq,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Cria uma nova antena com os parâmetros especificados. 
+
+Esta função aloca dinamicamente memória para uma nova estrutura {\ttfamily \mbox{\hyperlink{structAntena}{Antena}}}, inicializa os seus campos com os valores fornecidos e define o campo {\ttfamily visitado} como {\ttfamily false}. Caso a alocação de memória falhe, o parâmetro {\ttfamily validar} é atualizado para {\ttfamily false}; caso contrário, é atualizado para {\ttfamily true}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & Frequência de ressonância da antena ~\newline
+ \\
+\hline
+{\em x} & Coordenada X da posição da antena \\
+\hline
+{\em y} & Coordenada Y da posição da antena ~\newline
+ \\
+\hline
+{\em validar} & Ponteiro para uma variável booleana que indica se a operação foi bem-\/sucedida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Antena$\ast$ Ponteiro para a nova antena criada, ou {\ttfamily NULL} se ocorrer um erro durante a alocação 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a7960f376b25cf52b83f865f50f286235}\label{grafos_8c_a7960f376b25cf52b83f865f50f286235}} 
+\index{grafos.c@{grafos.c}!CriarAresta@{CriarAresta}}
+\index{CriarAresta@{CriarAresta}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{CriarAresta()}{CriarAresta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdj}{Adj}}$\ast$ Criar\+Aresta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{destino,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Cria uma nova aresta que liga uma antena de origem a uma antena de destino. 
+
+Cria uma nova aresta (ligação) entre antenas.
+
+Esta função aloca dinamicamente memória para uma nova estrutura {\ttfamily \mbox{\hyperlink{structAdj}{Adj}}}, inicializa o campo {\ttfamily destino} com o ponteiro para a antena de destino fornecida e define o campo {\ttfamily prox} como {\ttfamily NULL}. Caso a alocação de memória falhe, o parâmetro {\ttfamily validar} é atualizado para {\ttfamily false}; caso contrário, é atualizado para {\ttfamily true}
+
+
+\begin{DoxyParams}{Parameters}
+{\em destino} & Ponteiro para a antena de destino da aresta ~\newline
+ \\
+\hline
+{\em validar} & Ponteiro para uma variável booleana que indica se a operação foi bem-\/sucedida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adj$\ast$ Ponteiro para a nova aresta criada, ou {\ttfamily NULL} se ocorrer um erro durante a alocação 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a33a6dd2baadedf00f17cc0830479f234}\label{grafos_8c_a33a6dd2baadedf00f17cc0830479f234}} 
+\index{grafos.c@{grafos.c}!EncontrarAntena@{EncontrarAntena}}
+\index{EncontrarAntena@{EncontrarAntena}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{EncontrarAntena()}{EncontrarAntena()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAntena}{Antena}}$\ast$ Encontrar\+Antena (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Procura uma antena na lista ligada com coordenadas específicas (x, y) 
+
+Procura uma antena na lista ligada com base nas suas coordenadas.
+
+Esta função percorre a lista ligada de antenas {\ttfamily inicio} e retorna o ponteiro para a primeira antena que tenha as coordenadas (x, y) Se não encontrar nenhuma antena com essas coordenadas, a função retorna {\ttfamily NULL}
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Ponteiro para o início da lista de antenas \\
+\hline
+{\em x} & Coordenada x da antena a procurar \\
+\hline
+{\em y} & Coordenada y da antena a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Antena$\ast$ Ponteiro para a antena encontrada, ou {\ttfamily NULL} se não for encontrada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a0fe16a576f301e082ee240d3d31fbf18}\label{grafos_8c_a0fe16a576f301e082ee240d3d31fbf18}} 
+\index{grafos.c@{grafos.c}!GravarFicheiroBin@{GravarFicheiroBin}}
+\index{GravarFicheiroBin@{GravarFicheiroBin}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{GravarFicheiroBin()}{GravarFicheiroBin()}}
+{\footnotesize\ttfamily bool Gravar\+Ficheiro\+Bin (\begin{DoxyParamCaption}\item[{char $\ast$}]{nomeficheiro,  }\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio }\end{DoxyParamCaption})}
+
+
+
+Grava a lista de antenas num ficheiro binário. 
+
+Esta função grava os dados da lista ligada de antenas e respetivas adjacências num ficheiro binário especificado por {\ttfamily nomeficheiro}
+
+O formato do ficheiro é\+:
+\begin{DoxyItemize}
+\item Número total de antenas (int)
+\item Para cada antena\+:
+\begin{DoxyItemize}
+\item Frequência (char)
+\item Coordenada x (int)
+\item Coordenada y (int)
+\item Número de adjacências (int)
+\item Para cada adjacência\+:
+\begin{DoxyItemize}
+\item Coordenada x do destino (int)
+\item Coordenada y do destino (int)
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em nomeficheiro} & Nome do ficheiro onde os dados serão gravados \\
+\hline
+{\em inicio} & Ponteiro para o início da lista de antenas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a gravação foi bem sucedida 
+
+false caso contrário 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a180eac03ff7d4d403424853405bcd4b3}\label{grafos_8c_a180eac03ff7d4d403424853405bcd4b3}} 
+\index{grafos.c@{grafos.c}!GuardarCaminho@{GuardarCaminho}}
+\index{GuardarCaminho@{GuardarCaminho}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{GuardarCaminho()}{GuardarCaminho()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCaminho}{Caminho}}$\ast$ Guardar\+Caminho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{caminho\mbox{[}$\,$\mbox{]},  }\item[{int}]{posicao,  }\item[{\mbox{\hyperlink{structCaminho}{Caminho}} $\ast$}]{caminhos }\end{DoxyParamCaption})}
+
+
+
+Armazena um caminho percorrido por um vetor de antenas numa lista ligada de caminhos. 
+
+Guarda um caminho percorrido pelas antenas na lista de caminhos.
+
+Esta função cria um novo nó na lista ligada de caminhos, copiando o vetor de antenas até a posição especificada, e insere-\/o no início da lista
+
+
+\begin{DoxyParams}{Parameters}
+{\em caminho} & Vetor de ponteiros para antenas que representam o caminho percorrido \\
+\hline
+{\em posicao} & Índice da última antena válida no vetor {\ttfamily caminho} \\
+\hline
+{\em caminhos} & Ponteiro para o início da lista ligada de caminhos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Caminho$\ast$ Ponteiro para o novo início da lista ligada de caminhos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a70bf5ea0ee31825aa95f6e927ef6e2fa}\label{grafos_8c_a70bf5ea0ee31825aa95f6e927ef6e2fa}} 
+\index{grafos.c@{grafos.c}!InserirAntena@{InserirAntena}}
+\index{InserirAntena@{InserirAntena}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{InserirAntena()}{InserirAntena()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAntena}{Antena}}$\ast$ Inserir\+Antena (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{nova,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Insere uma nova antena numa lista ligada ordenada por coordenadas (y, x) 
+
+Insere uma nova antena na lista ligada de antenas.
+
+Esta função insere a antena {\ttfamily nova} na lista ligada de antenas {\ttfamily inicio}, mantendo a ordem crescente primeiro pela coordenada {\ttfamily y} e, em caso de empate, pela coordenada {\ttfamily x}. Caso já exista uma antena com as mesmas coordenadas, a inserção não é realizada e {\ttfamily validar} é definido como falso
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & \\
+\hline
+{\em nova} & \\
+\hline
+{\em validar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Antena$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_acabaf66d85450224d4ef172544c73b41}\label{grafos_8c_acabaf66d85450224d4ef172544c73b41}} 
+\index{grafos.c@{grafos.c}!InserirAresta@{InserirAresta}}
+\index{InserirAresta@{InserirAresta}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{InserirAresta()}{InserirAresta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdj}{Adj}}$\ast$ Inserir\+Aresta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{\mbox{\hyperlink{structAdj}{Adj}} $\ast$}]{aresta,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Insere uma nova aresta na lista de adjacências de uma antena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Ponteiro para a lista de antenas \\
+\hline
+{\em aresta} & Ponteiro para a aresta a ser inserida \\
+\hline
+{\em validar} & Ponteiro para uma variável booleana que indica se a inserção foi bem-\/sucedida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adj$\ast$ Ponteiro para a lista de antenas atualizada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_ad03cca7e5001b85436b02c3ff7cd5eba}\label{grafos_8c_ad03cca7e5001b85436b02c3ff7cd5eba}} 
+\index{grafos.c@{grafos.c}!LerFicheiroBin@{LerFicheiroBin}}
+\index{LerFicheiroBin@{LerFicheiroBin}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{LerFicheiroBin()}{LerFicheiroBin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAntena}{Antena}}$\ast$ Ler\+Ficheiro\+Bin (\begin{DoxyParamCaption}\item[{char $\ast$}]{nomeficheiro,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Lê uma lista de antenas e as respetivas adjacências de um ficheiro binário. 
+
+Lê um ficheiro binário e carrega os dados das antenas.
+
+Esta função carrega a informação de antenas e as suas adjacências a partir de um ficheiro binário especificado por {\ttfamily nomeficheiro} e recria a lista ligada de antenas
+
+
+\begin{DoxyParams}{Parameters}
+{\em nomeficheiro} & Nome do ficheiro binário a ler \\
+\hline
+{\em validar} & Apontador para booleano que será setado a true se a leitura for bem sucedida \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Antena$\ast$ Ponteiro para o início da lista ligada de antenas, ou NULL em caso de erro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grafos_8c_a959bd21997a05df87fdefa836fed18b8}\label{grafos_8c_a959bd21997a05df87fdefa836fed18b8}} 
+\index{grafos.c@{grafos.c}!LimparVisitados@{LimparVisitados}}
+\index{LimparVisitados@{LimparVisitados}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{LimparVisitados()}{LimparVisitados()}}
+{\footnotesize\ttfamily void Limpar\+Visitados (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Limpa o estado de visita de todas as antenas na lista. 
+
+Limpa o estado de visitação de todas as antenas no grafo.
+
+Esta função percorre a lista ligada de antenas, começando pelo ponteiro {\ttfamily inicio}, e define o campo {\ttfamily visitado} de cada antena como {\ttfamily false}. É útil para reiniciar o estado de visita antes de realizar uma nova busca ou algoritmo que dependa desse campo, como a busca em profundidade e em largura etc...
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Ponteiro para o início da lista ligada de antenas \\
+\hline
+{\em validar} & Ponteiro para variável booleana onde será armazenado o resultado da operação \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{grafos_8c_a9f602cb53b3fb3017bd72843ab3e78e0}\label{grafos_8c_a9f602cb53b3fb3017bd72843ab3e78e0}} 
+\index{grafos.c@{grafos.c}!ProcuraProfundidade@{ProcuraProfundidade}}
+\index{ProcuraProfundidade@{ProcuraProfundidade}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{ProcuraProfundidade()}{ProcuraProfundidade()}}
+{\footnotesize\ttfamily void Procura\+Profundidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{antena,  }\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{visitados\mbox{[}$\,$\mbox{]},  }\item[{int $\ast$}]{n\+Visitados,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Realiza uma busca em profundidade a partir de uma antena. 
+
+Esta função percorre recursivamente as antenas adjacentes à antena fornecida, marcando-\/as como visitadas e armazenando-\/as no vetor {\ttfamily visitados}. A busca é limitada às antenas que ainda não foram visitadas e que partilham a mesma frequência da antena de origem.
+
+
+\begin{DoxyParams}{Parameters}
+{\em antena} & Ponteiro para a antena de origem da busca \\
+\hline
+{\em visitados} & Vetor onde serão armazenadas as antenas visitadas durante a busca \\
+\hline
+{\em n\+Visitados} & Ponteiro para o número de antenas visitadas até o momento \\
+\hline
+{\em validar} & Ponteiro para variável booleana que será setada a {\ttfamily true} se a operação for bem-\/sucedida \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{grafos_8c_a11bdbb750ee456af6c4a7b316c2676a3}\label{grafos_8c_a11bdbb750ee456af6c4a7b316c2676a3}} 
+\index{grafos.c@{grafos.c}!RemoverAntena@{RemoverAntena}}
+\index{RemoverAntena@{RemoverAntena}!grafos.c@{grafos.c}}
+\doxysubsubsection{\texorpdfstring{RemoverAntena()}{RemoverAntena()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAntena}{Antena}}$\ast$ Remover\+Antena (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAntena}{Antena}} $\ast$}]{inicio,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{bool $\ast$}]{validar }\end{DoxyParamCaption})}
+
+
+
+Remove uma antena da lista ligada com coordenadas específicas (x, y) 
+
+Remove uma antena da lista ligada com base nas suas coordenadas.
+
+Esta função procura e remove a antena na lista ligada {\ttfamily inicio} que tenha as coordenadas (x, y) Se a antena for encontrada, é removida da lista, a memória é libertada, e o ponteiro para o início da lista é atualizado Caso contrário, a lista permanece inalterada e {\ttfamily validar} é definido como falso.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inicio} & Ponteiro para o início da lista de antenas \\
+\hline
+{\em x} & Coordenada x da antena a remover \\
+\hline
+{\em y} & Coordenada y da antena a remover \\
+\hline
+{\em validar} & Ponteiro para variável booleana onde será armazenado o resultado da operação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Antena$\ast$ Ponteiro para o início atualizado da lista de antenas 
+\end{DoxyReturn}

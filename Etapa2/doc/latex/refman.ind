@@ -1,0 +1,123 @@
+\begin{theindex}
+
+  \item {Adj}, \hyperpage{5}
+    \subitem {grafos.h}, \hyperpage{25}
+  \item {Antena}, \hyperpage{6}
+
+  \indexspace
+
+  \item {CalcularArestas}
+    \subitem {grafos.c}, \hyperpage{15}
+    \subitem {grafos.h}, \hyperpage{25}
+  \item {CalcularCaminhosEntreAntenas}
+    \subitem {grafos.c}, \hyperpage{15}
+    \subitem {grafos.h}, \hyperpage{26}
+  \item {Caminho}, \hyperpage{7}
+    \subitem {grafos.h}, \hyperpage{25}
+  \item {CarregarFicheiro}
+    \subitem {grafos.c}, \hyperpage{16}
+    \subitem {grafos.h}, \hyperpage{27}
+  \item {CriarAntena}
+    \subitem {grafos.c}, \hyperpage{17}
+    \subitem {grafos.h}, \hyperpage{28}
+  \item {CriarAresta}
+    \subitem {grafos.c}, \hyperpage{17}
+    \subitem {grafos.h}, \hyperpage{28}
+
+  \indexspace
+
+  \item {ecra.c}, \hyperpage{9}
+    \subitem {ListarCaminhos}, \hyperpage{10}
+    \subitem {MostraGrafo}, \hyperpage{10}
+  \item {ecra.h}, \hyperpage{11}
+    \subitem {ListarCaminhos}, \hyperpage{12}
+    \subitem {MostraGrafo}, \hyperpage{13}
+  \item {EncontrarAntena}
+    \subitem {grafos.c}, \hyperpage{18}
+    \subitem {grafos.h}, \hyperpage{29}
+
+  \indexspace
+
+  \item {grafos.c}, \hyperpage{13}
+    \subitem {CalcularArestas}, \hyperpage{15}
+    \subitem {CalcularCaminhosEntreAntenas}, \hyperpage{15}
+    \subitem {CarregarFicheiro}, \hyperpage{16}
+    \subitem {CriarAntena}, \hyperpage{17}
+    \subitem {CriarAresta}, \hyperpage{17}
+    \subitem {EncontrarAntena}, \hyperpage{18}
+    \subitem {GravarFicheiroBin}, \hyperpage{18}
+    \subitem {GuardarCaminho}, \hyperpage{19}
+    \subitem {InserirAntena}, \hyperpage{19}
+    \subitem {InserirAresta}, \hyperpage{20}
+    \subitem {LerFicheiroBin}, \hyperpage{20}
+    \subitem {LimparVisitados}, \hyperpage{21}
+    \subitem {ProcuraProfundidade}, \hyperpage{21}
+    \subitem {RemoverAntena}, \hyperpage{22}
+  \item {grafos.h}, \hyperpage{22}
+    \subitem {Adj}, \hyperpage{25}
+    \subitem {CalcularArestas}, \hyperpage{25}
+    \subitem {CalcularCaminhosEntreAntenas}, \hyperpage{26}
+    \subitem {Caminho}, \hyperpage{25}
+    \subitem {CarregarFicheiro}, \hyperpage{27}
+    \subitem {CriarAntena}, \hyperpage{28}
+    \subitem {CriarAresta}, \hyperpage{28}
+    \subitem {EncontrarAntena}, \hyperpage{29}
+    \subitem {GravarFicheiroBin}, \hyperpage{30}
+    \subitem {GuardarCaminho}, \hyperpage{31}
+    \subitem {InserirAntena}, \hyperpage{32}
+    \subitem {InserirAresta}, \hyperpage{32}
+    \subitem {LerFicheiroBin}, \hyperpage{33}
+    \subitem {LimparVisitados}, \hyperpage{33}
+    \subitem {ProcuraProfundidade}, \hyperpage{34}
+    \subitem {RemoverAntena}, \hyperpage{34}
+  \item {GravarFicheiroBin}
+    \subitem {grafos.c}, \hyperpage{18}
+    \subitem {grafos.h}, \hyperpage{30}
+  \item {GuardarCaminho}
+    \subitem {grafos.c}, \hyperpage{19}
+    \subitem {grafos.h}, \hyperpage{31}
+
+  \indexspace
+
+  \item {InserirAntena}
+    \subitem {grafos.c}, \hyperpage{19}
+    \subitem {grafos.h}, \hyperpage{32}
+  \item {InserirAresta}
+    \subitem {grafos.c}, \hyperpage{20}
+    \subitem {grafos.h}, \hyperpage{32}
+
+  \indexspace
+
+  \item {LerFicheiroBin}
+    \subitem {grafos.c}, \hyperpage{20}
+    \subitem {grafos.h}, \hyperpage{33}
+  \item {LimparVisitados}
+    \subitem {grafos.c}, \hyperpage{21}
+    \subitem {grafos.h}, \hyperpage{33}
+  \item {ListarCaminhos}
+    \subitem {ecra.c}, \hyperpage{10}
+    \subitem {ecra.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{37}
+  \item {main.c}, \hyperpage{35}
+    \subitem {main}, \hyperpage{37}
+  \item {MostraGrafo}
+    \subitem {ecra.c}, \hyperpage{10}
+    \subitem {ecra.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {ProcuraProfundidade}
+    \subitem {grafos.c}, \hyperpage{21}
+    \subitem {grafos.h}, \hyperpage{34}
+
+  \indexspace
+
+  \item {RemoverAntena}
+    \subitem {grafos.c}, \hyperpage{22}
+    \subitem {grafos.h}, \hyperpage{34}
+
+\end{theindex}

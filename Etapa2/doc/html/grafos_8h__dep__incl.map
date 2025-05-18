@@ -1,0 +1,7 @@
+<map id="grafos.h" name="grafos.h">
+<area shape="rect" id="node1" title="Define as funções e estruturas." alt="" coords="87,5,161,32"/>
+<area shape="rect" id="node2" href="$ecra_8h.html" title="Define as funções para apresentar no ecrã" alt="" coords="23,80,86,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="rograma principal que executa as funções" alt="" coords="91,155,157,181"/>
+<area shape="rect" id="node5" href="$grafos_8c.html" title="Implementação de todas as funções." alt="" coords="161,80,236,107"/>
+<area shape="rect" id="node3" href="$ecra_8c.html" title="Implementação das funções para mostrar no ecrã" alt="" coords="5,155,67,181"/>
+</map>

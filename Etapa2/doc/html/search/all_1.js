@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['calculararestas_2',['CalcularArestas',['../grafos_8c.html#a9a9779268684f27f99c086c34f75ee27',1,'CalcularArestas(Antena *inicio, bool *validar):&#160;grafos.c'],['../grafos_8h.html#a9a9779268684f27f99c086c34f75ee27',1,'CalcularArestas(Antena *inicio, bool *validar):&#160;grafos.c']]],
+  ['calcularcaminhosentreantenas_3',['CalcularCaminhosEntreAntenas',['../grafos_8c.html#a39636bf6ac495e4e28725d57ecb3e028',1,'CalcularCaminhosEntreAntenas(Antena *origem, Antena *destino, Antena *caminho[], int posicao, Caminho *caminhos, bool *validar):&#160;grafos.c'],['../grafos_8h.html#a39636bf6ac495e4e28725d57ecb3e028',1,'CalcularCaminhosEntreAntenas(Antena *origem, Antena *destino, Antena *caminho[], int posicao, Caminho *caminhos, bool *validar):&#160;grafos.c']]],
+  ['caminho_4',['Caminho',['../structCaminho.html',1,'Caminho'],['../grafos_8h.html#a3f0cb4117cdc19cde5f8f63fdab01c20',1,'Caminho():&#160;grafos.h']]],
+  ['carregarficheiro_5',['CarregarFicheiro',['../grafos_8c.html#a2142b38345cf261e321082a08d90fc3a',1,'CarregarFicheiro(char *nomeficheiro, bool *validar):&#160;grafos.c'],['../grafos_8h.html#a2142b38345cf261e321082a08d90fc3a',1,'CarregarFicheiro(char *nomeficheiro, bool *validar):&#160;grafos.c']]],
+  ['criarantena_6',['CriarAntena',['../grafos_8c.html#a413e1adf8104f8d4f10d151495b094db',1,'CriarAntena(char freq, int x, int y, bool *validar):&#160;grafos.c'],['../grafos_8h.html#a413e1adf8104f8d4f10d151495b094db',1,'CriarAntena(char freq, int x, int y, bool *validar):&#160;grafos.c']]],
+  ['criararesta_7',['CriarAresta',['../grafos_8c.html#a7960f376b25cf52b83f865f50f286235',1,'CriarAresta(Antena *destino, bool *validar):&#160;grafos.c'],['../grafos_8h.html#a7960f376b25cf52b83f865f50f286235',1,'CriarAresta(Antena *destino, bool *validar):&#160;grafos.c']]]
+];
